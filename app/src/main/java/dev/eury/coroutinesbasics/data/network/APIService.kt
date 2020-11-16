@@ -10,32 +10,32 @@ import retrofit2.http.Path
 interface APIService {
 
     @GET("user/{userId}/posts")
-    fun getPosts(
+    suspend fun getPosts(
         @Path("userId") userId: Int
-    ): Call<List<Post>>
+    ): List<Post>
+
+    @GET("/posts/{postId}")
+    suspend fun getPost(
+        @Path("postId") postId: Int
+    ): Post
 
     @POST("posts")
-    fun createPost(
+    suspend fun createPost(
         @Body post: Post
-    ): Call<Post>
+    ): Post
 
     @GET("posts/{postId}/comments")
-    fun getComments(
+    suspend fun getComments(
         @Path("postId") postId: Int
-    ): Call<List<Comment>>
+    ): List<Comment>
 
     @GET("users/{userId}/albums")
-    fun getAlbums(
+    suspend fun getAlbums(
         @Path("userId") userId: Int
-    ): Call<List<Album>>
-
-    @GET("albums/{albumId}/photos")
-    fun getPhotos(
-        @Path("albumId") albumId: Int
-    ): Call<List<Photo>>
+    ): List<Album>
 
     @GET("user/{userId}/todos")
-    fun getTodos(
+    suspend fun getTodos(
         @Path("userId") userId: Int
-    ): Call<List<Todo>>
+    ): List<Todo>
 }

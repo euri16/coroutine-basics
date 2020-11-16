@@ -5,19 +5,21 @@
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     app:cardUseCompatPadding="true"
+    app:cardCornerRadius="10dp"
     android:layout_marginStart="15dp"
     android:layout_marginEnd="15dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:padding="15dp"
+        android:background="#56CEE5F4">
 
         <ImageView
             android:id="@+id/iv_profile_picture"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:background="#CCCCCC"
+            android:background="#5A5959"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,26 +31,24 @@
             android:text="John Doe"
             android:textSize="17sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/iv_profile_picture"
             app:layout_constraintStart_toEndOf="@id/iv_profile_picture"
             app:layout_constraintTop_toTopOf="@id/iv_profile_picture" />
 
         <TextView
-            android:id="@+id/tv_post_title"
+            android:id="@+id/tv_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/iv_profile_picture"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:layout_marginTop="10dp"
-            tools:text="Loren ipsum dolor sit amet loren ipsum" />
+            android:layout_marginStart="10dp"
+            android:text="johndoe@mail.com"
+            android:textSize="13sp"
+            app:layout_constraintTop_toBottomOf="@id/tv_name"
+            app:layout_constraintStart_toEndOf="@id/iv_profile_picture" />
 
         <TextView
             android:id="@+id/tv_post_body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tv_post_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_email"
             app:layout_constraintStart_toStartOf="parent"
             android:textSize="14sp"
             android:layout_marginTop="10dp"

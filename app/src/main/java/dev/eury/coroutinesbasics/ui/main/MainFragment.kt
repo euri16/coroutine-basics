@@ -5,26 +5,27 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import dev.eury.coroutinesbasics.R
+import dev.eury.coroutinesbasics.ui.main.adapters.CreatePostClickedAction
 import dev.eury.coroutinesbasics.ui.main.adapters.MainAdapter
 import dev.eury.coroutinesbasics.ui.main.adapters.MainScreenItemAction
+import dev.eury.coroutinesbasics.ui.main.adapters.PostClickedAction
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class MainFragment : Fragment() {
 
-    private val userViewModel:UserViewModel by activityViewModels()
+    private val mainViewModel: MainViewModel by activityViewModels()
     private val adapter = MainAdapter(::onAction)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        userViewModel.moduleListLiveData.observe(::getLifecycle) {
+        mainViewModel.moduleListLiveData.observe(::getLifecycle) {
             adapter.items = it
         }
     }
@@ -41,8 +42,23 @@ class MainFragment : Fragment() {
         return view
     }
 
+    override fun onResume() {
+        super.onResume()
 
-    fun onAction(action:MainScreenItemAction) {
+    }
 
+
+    fun onAction(action: MainScreenItemAction) {
+        when (action) {
+            is PostClickedAction -> {
+               val post = action.post
+
+                val direction = MainFragmentDirections.actionFirstFragmentToSecondFragment(post.id ?: 0)
+                findNavController().navigate(direction)
+            }
+            is CreatePostClickedAction -> {
+                findNavController().navigate(MainFragmentDirections.toPostCreate())
+            }
+        }
     }
 }

@@ -30,4 +30,6 @@ class MainAdapter(private val onAction: (MainScreenItemAction) -> Unit) :
     }
 
     override fun getItemCount() = items.count()
+
+    override fun getItemViewType(position: Int) = items[position].itemType.ordinal
 }

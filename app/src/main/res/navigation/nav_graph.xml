@@ -3,26 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/MainFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
+        android:id="@+id/MainFragment"
         android:name="dev.eury.coroutinesbasics.ui.main.MainFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_main">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            app:destination="@id/PostFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:popEnterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_close_exit"
+            app:popUpTo="@id/MainFragment" />
+        <action
+            android:id="@+id/toPostCreate"
+            app:destination="@id/postCreateFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="dev.eury.coroutinesbasics.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+        android:id="@+id/PostFragment"
+        android:name="dev.eury.coroutinesbasics.ui.post.PostFragment"
+        android:label="Post Detail"
+        tools:layout="@layout/fragment_post_detail">
+        <argument
+            android:name="postId"
+            app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/postCreateFragment"
+        android:name="dev.eury.coroutinesbasics.ui.post.PostCreateFragment"
+        android:label="fragment_post_create"
+        tools:layout="@layout/fragment_post_create" />
 </navigation>
