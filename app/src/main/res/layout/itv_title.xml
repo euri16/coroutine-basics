@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_todos_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/glBegin"
+        android:layout_marginTop="30dp"
+        tools:text="TODOs"
+        android:textStyle="bold"
+        android:textSize="19sp"/>
+
+    <TextView
+        android:id="@+id/tv_todos_see_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/tv_todos_title"
+        app:layout_constraintEnd_toEndOf="@id/glEnd"
+        android:text="See all"
+        android:textSize="17sp"
+        android:textColor="#2196F3"
+        android:layout_marginStart="20dp"/>
+
+    <View
+        android:id="@+id/v_todos"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#D5D5D5"
+        app:layout_constraintTop_toBottomOf="@id/tv_todos_title"
+        app:layout_constraintStart_toStartOf="@id/tv_todos_title"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glBegin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

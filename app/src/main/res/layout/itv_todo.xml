@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:padding="10dp">
+        <TextView
+            android:id="@+id/tv_todo_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            tools:text="Loren ipsum dolor sit amet lorem ipsum dolor sit amet loren ipsum dolor sit ametLoren ipsum dolor sit amet lorem ipsum dolor sit amet loren ipsum dolor sit ametLoren ipsum dolor sit amet lorem ipsum dolor sit amet loren ipsum dolor sit amet"
+            android:ellipsize="end"
+            android:textSize="12sp"
+            android:maxLines="4" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
