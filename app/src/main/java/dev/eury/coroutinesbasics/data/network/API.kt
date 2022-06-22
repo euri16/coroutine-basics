@@ -13,16 +13,14 @@ object API {
         level = HttpLoggingInterceptor.Level.BODY
     }
 
-    private val httpInterceptor = object : Interceptor {
-        override fun intercept(chain: Interceptor.Chain): Response {
-            val request = chain.request()
-                .newBuilder()
-                .header("Content-type", "application/json")
-                .header("charset", "UTF-8")
-                .build()
+    private val httpInterceptor = Interceptor { chain ->
+        val request = chain.request()
+            .newBuilder()
+            .header("Content-type", "application/json")
+            .header("charset", "UTF-8")
+            .build()
 
-            return chain.proceed(request)
-        }
+        chain.proceed(request)
     }
 
     // OkhttpClient for building http request url

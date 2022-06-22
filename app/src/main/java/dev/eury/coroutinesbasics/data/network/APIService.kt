@@ -7,12 +7,18 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
 
+// TODO: Refactor to use coroutines
 interface APIService {
 
     @GET("user/{userId}/posts")
     fun getPosts(
         @Path("userId") userId: Int
     ): Call<List<Post>>
+
+    @GET("/posts/{postId}")
+    fun getPost(
+        @Path("postId") postId: Int
+    ): Call<Post>
 
     @POST("posts")
     fun createPost(
@@ -28,11 +34,6 @@ interface APIService {
     fun getAlbums(
         @Path("userId") userId: Int
     ): Call<List<Album>>
-
-    @GET("albums/{albumId}/photos")
-    fun getPhotos(
-        @Path("albumId") albumId: Int
-    ): Call<List<Photo>>
 
     @GET("user/{userId}/todos")
     fun getTodos(
